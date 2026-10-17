@@ -36,26 +36,28 @@ def start_scan():
     target_url = input(Fore.WHITE + "Enter Target URL (e.g., http://testphp.vulnweb.com): ").strip()
     if not target_url.startswith("http"): target_url = "http://" + target_url
     print(Fore.CYAN + f"\n[*] Scanning {target_url}...")
-    print(Fore.RED + "-------------------------------------------------------------------------------------")
+    print(Fore.RED + "--------------------------------------------------")
     threads = []
     for path in wordlist:
         t = threading.Thread(target=scan_path, args=(path,))
         threads.append(t)
         t.start()
     for thread in threads: thread.join()
-    print(Fore.RED + "-------------------------------------------------------------------------------------")
-    print(Fore.GREEN + "[✓] Scan Complete!")
+    print(Fore.RED + "--------------------------------------------------")
+    print(Fore.GREEN + "[+] Scan Complete!")
     input(Fore.YELLOW + "\nPress Enter to exit...")
 
+# --- HOMEPAGE DESIGN ---
 os.system('clear')
-print(Fore.RED + "==========================================================")
+print(Fore.RED + "==================================================")
 print(Fore.RED + Style.BRIGHT + "  ____  _____ ____    __        _____ ____  _   _  ____  _   _ ")
 print(Fore.RED + Style.BRIGHT + " |  _ \| ____|  _ \   \ \      / /| ____|  _ \| | | ||  _ \| | | |")
 print(Fore.RED + Style.BRIGHT + " | |_) |  _| | | | |   \ \ /\ / / |  _| | |_) | |_| || |_) | |_| |")
 print(Fore.RED + Style.BRIGHT + " |  _ <| |___| |_| |    \ V  V /  | |___|  _ <|  _  ||  __/|  _  |")
 print(Fore.RED + Style.BRIGHT + " |_| \_\_____|____/      \_/\_/   |_____|_| \_\_| |_||_|    |_| |_|")
-print(Fore.RED + "==========================================================")
+print(Fore.RED + "==================================================")
 print(Fore.MAGENTA + Style.BRIGHT + "                 DEVELOPER BY SABBIR ØX")
-print(Fore.RED + "==========================================================")
+print(Fore.RED + "==================================================")
 print("")
+
 start_scan()
